@@ -200,18 +200,21 @@
 </div>
 <div class="footer-container">
     <span class="footer-hindenburg">Hindenburg</span>
-    <span>
-        <br>
-        <span class="footer-header">Socials</span><br>
-        <a href="https://github.com/skeldjs/Hindenburg">GitHub</a><br>
-        <a href="https://hub.docker.com/r/hindenburg/hindenburg">DockerHub</a><br>
-        <a href="https://discord.gg/8ewNJYmYAU">Discord</a><br><br>
-        <span class="footer-header">Icons</span><br>
-        <a href="https://materialdesignicons.com">Material Design Icons</a><br>
-        <a href="https://flaticon.com">Flaticon</a><br>
-        <a href="https://heroicons.com">Heroicons</a><br>
-    </span>
-    <span class="made-with">Made with ♥ by <a href="https://github.com/edqx">edqx</a></span> 
+    <div class="footer-list">
+        <div class="footer-item">
+            <span class="footer-header">Socials</span>
+            <a href="https://github.com/skeldjs/Hindenburg">GitHub</a>
+            <a href="https://hub.docker.com/r/hindenburg/hindenburg">DockerHub</a>
+            <a href="https://discord.gg/8ewNJYmYAU">Discord</a>
+        </div>
+        <div class="footer-item">
+            <span class="footer-header">Icons</span>
+            <a href="https://materialdesignicons.com">Material Design Icons</a>
+            <a href="https://flaticon.com">Flaticon</a>
+            <a href="https://heroicons.com">Heroicons</a>
+        </div>
+    </div>
+    <span class="made-with">Made with ♥ by <a href="https://github.com/edqx">edqx</a></span>
 </div>
 
 <style>
@@ -229,6 +232,7 @@
         margin-right: 160px;
         display: flex;
         justify-content: space-around;
+        width: 100%;
     }
 
     .splash-splitter > div {
@@ -244,6 +248,7 @@
     .splash-hindenburg {
         font-weight: 700;
         font-size: 46px;
+        margin-bottom: 8px;
     }
 
     .splash-socials {
@@ -253,7 +258,7 @@
     }
 
     .splash-social {
-        margin-top: 8px;
+        margin-top: 15px;
         display: flex;
         align-items: center;
     }
@@ -293,7 +298,7 @@
     }
 
     .features-container {
-        background-color: #32436a;
+        background-color: #4e718c;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -340,7 +345,7 @@
     }
 
     .built-on-hindenburg-container {
-        background-color: #da8c8a;
+        background-color: #1a3951;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -464,6 +469,17 @@
         text-decoration: underline;
         margin-top: 20px;
         margin-bottom: 10px;
+    }
+
+    .footer-list {
+        display: flex;
+    }
+
+    .footer-item {
+        display: flex;
+        flex-direction: column;
+        margin-left: 30px;
+        margin-right: 30px;
     }
 
     .made-with {

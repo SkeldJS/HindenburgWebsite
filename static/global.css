@@ -1,8 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&family=Source+Code+Pro&display=swap");
 
 :root {
-    --main-bg-color: #1b1b21;
+    --main-bg-color: #242626;
     --main-text-color: #ffffff;
+    --main-card1-color: #6a457a;
+    --main-card2-color: #3f3351;
 }
 
 html, body {

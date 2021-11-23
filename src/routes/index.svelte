@@ -1,4 +1,7 @@
 <script lang="ts">
+    import Icon from "mdi-svelte";
+    import { mdiBook, mdiBookOpen, mdiBookOpenBlankVariant, mdiBookOpenPageVariantOutline, mdiChevronDown, mdiChevronRight, mdiCogOutline, mdiNoteText, mdiShieldOutline, mdiToyBrickOutline } from "@mdi/js";
+
     import navbarColor from "../stores/navbarColor";
     import CommandClodeBlock from "../components/CommandClodeBlock.svelte";
 
@@ -15,19 +18,6 @@
     const dockerInstallLines = [
         "docker run\n--name Hindenburg\n-p 22023:22023/udp\nhindenburg/hindenburg:latest"
     ];
-
-    let learnMoreChevron: HTMLImageElement;
-    let learnMoreBeenHovered: boolean;
-    function onLearnMoreHover() {
-        learnMoreBeenHovered = true;
-    }
-
-    setTimeout(() => {
-        if (!learnMoreChevron || learnMoreBeenHovered)
-            return;
-
-        learnMoreChevron.classList.add("play-bounce");
-    }, 2000);
 
     let scrollY = 0;
     let splashContainer: HTMLDivElement;
@@ -48,17 +38,6 @@
             }
         }
     }
-
-    let ipTextbox: HTMLInputElement;
-
-    function copyIp() {
-        if (!ipTextbox) {
-            return;
-        }
-
-        ipTextbox.select();
-        document.execCommand("copy");
-    }
 </script>
 
 <svelte:window bind:scrollY={scrollY} />
@@ -78,7 +57,7 @@
                     <span class="social-name">Join our discord</span>
                 </a>
                 <a href="https://skeldjs.github.io/Hindenburg" class="splash-social">
-                    <img alt="github icon" src="/book.svg" width=32/>
+                    <Icon path={mdiNoteText} size="32px" />
                     <span class="social-name">Read the docs</span>
                 </a>
             </div>
@@ -89,14 +68,8 @@
             <CommandClodeBlock commandLines={dockerInstallLines} />
         </div>
     </div>
-    <a class="learn-more-container" href="#features" on:mouseover={onLearnMoreHover} on:focus={onLearnMoreHover}>
-        <img
-            class="learn-more-icon"
-            bind:this={learnMoreChevron}
-            alt="arrow facing downwards"
-            src="/chevron.svg"
-            width=24
-        />
+    <a class="learn-more-container" href="#features">
+        <Icon path={mdiChevronDown} size="32px" />
         <span class="learn-more-text">Why Hindenburg?</span>
     </a>
 </div>
@@ -104,43 +77,48 @@
     <span class="features-header">Hindenburg is more than just an ordinary Among Us server.</span>
     <div class="feature-list">
         <div class="feature">
+            <div class="feature-icon">
+                <Icon path={mdiShieldOutline} width="32px" />
+            </div>
             <div class="feature-details">
                 <span class="feature-name">Complete Authority</span>
-                <p class="feature-description">Hindenburg does much more than a glorified relay server;
-                    it actively participates and with Server-As-A-Host technology,
-                    it provides full control over players, giving you huge amounts
-                    of potential.</p>
+                <p class="feature-description">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ultrices porttitor
+                    risus sit amet elementum. Nam id erat. 
+                </p>
+                <a href="/plugins" class="feature-learn-more">Learn more</a>
             </div>
-            <img class="feature-image" src="/servers.png" width=86 alt="authoratitive servers" />
-        </div>
-        <div class="feature rtl">
-            <div class="feature-details">
-                <span class="feature-name">Configurable</span>
-                <p class="feature-description">You can customise almost every way in which Hindenburg works,
-                    giving you the ability to fine-tune your server and make it perfect for your needs.</p>
-            </div>
-            <img class="feature-image" src="/settings.png" width=86 alt="authoratitive servers" />
         </div>
         <div class="feature">
+            <div class="feature-icon">
+                <Icon path={mdiCogOutline} width="32px" />
+            </div>
+            <div class="feature-details">
+                <span class="feature-name">Configurable</span>
+                <p class="feature-description">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent nunc nibh,
+                    dignissim non mauris dictum, accumsan lacinia augue.
+                </p>
+                <a href="/plugins" class="feature-learn-more">Learn more</a>
+            </div>
+        </div>
+        <div class="feature">
+            <div class="feature-icon">
+                <Icon path={mdiToyBrickOutline} width="32px" />
+            </div>
             <div class="feature-details">
                 <span class="feature-name">Plugins</span>
-                <p class="feature-description">For server owners, seemlessly integrate easy-to-install plugins
-                    into your server and configure them directly.
-
-                    For plugin developers, Hindenburg's powerful API allows you to control everything from
-                    individual rooms to the behaviour of the server itself. </p>
+                <p class="feature-description">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi quis ex diam.
+                    Ut ut hendrerit velit. Donec in maximus urna. 
+                </p>
+                <a href="/plugins" class="feature-learn-more">Learn more</a>
             </div>
-            <img class="feature-image" src="/plug.png" width=86 alt="authoratitive servers" />
         </div>
     </div>
     <a class="learn-more-container margin" href="/features">
         <span class="learn-more-text">Check out the full list</span>
-        <img
-            class="learn-more-icon rotate"
-            alt="arrow facing downwards"
-            src="/chevron.svg"
-            width=24
-        />
+        <Icon path={mdiChevronRight} size="32px" />
     </a>
 </div>
 <div class="built-on-hindenburg-container" bind:this={builtOnHindenburgContainer}>
@@ -171,12 +149,7 @@
     </div>
     <a class="learn-more-container margin" href="/get-started">
         <span class="learn-more-text">Be the next</span>
-        <img
-            class="learn-more-icon rotate"
-            alt="arrow facing downwards"
-            src="/chevron.svg"
-            width=24
-        />
+        <Icon path={mdiChevronRight} size="32px" />
     </a>
 </div>
 <div class="public-ip-container" bind:this={publicIpContainer}>
@@ -190,12 +163,7 @@
     </div>-->
     <a class="learn-more-container margin" href="/get-started">
         <span class="learn-more-text">Get started</span>
-        <img
-            class="learn-more-icon rotate"
-            alt="arrow facing downwards"
-            src="/chevron.svg"
-            width=24
-        />
+        <Icon path={mdiChevronRight} size="32px" />
     </a>
 </div>
 <div class="footer-container">
@@ -225,6 +193,7 @@
         justify-content: center;
         align-items: center;
         background-color: var(--main-bg-color);
+        position: relative;
     }
 
     .splash-splitter {
@@ -298,7 +267,8 @@
     }
 
     .features-container {
-        background-color: #4e718c;
+        background-color: #0c0d0d;
+        color: #eeeeee;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -316,26 +286,24 @@
 
     .feature-list {
         display: flex;
-        flex-direction: column;
+        flex-wrap: wrap;
     }
 
     .feature {
         display: flex;
-        align-items: center;
-        width: 800px;
-    }
-
-    .feature > * {
+        flex-direction: column;
+        border-radius: 6px;
+        align-items: flex-start;
         margin: 40px;
+        padding: 14px;   
     }
 
-    .feature.rtl {
-        flex-direction: row-reverse;
-    }
-
-    .feature-name {
-        font-weight: 700;
-        font-size: 24px;
+    .feature-icon {
+        padding: 14px;
+        background-color: rgba(255, 255, 255, 0.1);
+        border-radius: 6px;
+        margin-bottom: 14px;
+        color: white;
     }
 
     .feature-details {
@@ -344,8 +312,23 @@
         flex: 4 1 0;
     }
 
+    .feature-name {
+        font-weight: 700;
+        font-size: 20px;
+    }
+
+    .feature-description {
+        margin-top: 4px;
+        margin-bottom: 4px;
+        max-width: 350px;
+    }
+
+    .feature-learn-more {
+        color: #42a5f5;
+    }
+
     .built-on-hindenburg-container {
-        background-color: #1a3951;
+        background-color: var(--main-card2-color);
         display: flex;
         flex-direction: column;
         align-items: center;
